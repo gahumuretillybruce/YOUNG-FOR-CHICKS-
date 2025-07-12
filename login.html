@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url(chicken-picture.jpg) center center / cover no-repeat fixed;
+      color: white;
+      overflow: hidden;
+    }
+
+    .login-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      width: 90%;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url("ai-generated-chicken-picture.jpg") center center / cover no-repeat;
+      background-blend-mode: multiply;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .welcome-section, .sign-in-section {
+      flex: 1 1 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .logo span { color: orange; }
+
+    .welcome-section h1 { font-size: 2.5em; margin-bottom: 15px; }
+    .welcome-section p { margin-bottom: 30px; font-size: 1em; }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5em;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+    .social-links a:hover { color: orange; }
+
+    .sign-in-section h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .login-form {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .input-group label {
+      font-size: 0.9em;
+      margin-bottom: 5px;
+      display: block;
+      color: #ccc;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 10px 10px 10px 35px;
+      border: none;
+      border-bottom: 1px solid #777;
+      background: transparent;
+      color: white;
+    }
+    .input-group .icon {
+      position: absolute;
+      left: 10px;
+      top: 35px;
+      font-size: 1em;
+      color: #999;
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+    }
+    .options label { display: flex; align-items: center; }
+    .options input[type="checkbox"] {
+      margin-right: 5px;
+      accent-color: orange;
+    }
+    .forgot-password {
+      color: orange;
+      text-decoration: none;
+    }
+    .forgot-password:hover { text-decoration: underline; }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background: orange;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .login-button:hover { background: #e08000; }
+
+    .signup-link {
+      margin-top: 25px;
+      font-size: 0.95em;
+      color: #bbb;
+    }
+    .signup-link a {
+      color: orange;
+      text-decoration: none;
+    }
+    .signup-link a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .login-container { flex-direction: column; }
+      .welcome-section, .sign-in-section {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="welcome-section">
+      <div class="logo">YOUNG 4<span>CHICKS</span></div>
+      <h1>Welcome to Our Website!</h1>
+      <p>Kickstart Your Empire — One Chick at a Time, Backed by Purpose. Built for Profit.</p>
+      <div class="social-links">
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="x.png" alt="X"></a>
+        <a href="#"><img src="email.png" alt="Email"></a>
+      </div>
+    </div>
+
+    <div class="sign-in-section">
+      <h2>Sign In</h2>
+      <form class="login-form" id="loginForm">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Email" required>
+          <span class="icon">&#9993;</span>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Password" required>
+          <span class="icon">&#128274;</span>
+        </div>
+        <div class="options">
+          <label><input type="checkbox" id="rememberMe"> Remember Me</label>
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+        <button type="submit" class="login-button">Log In</button>
+      </form>
+      <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const users = {
+        'manager@ngbrooder.com': { password: 'manager123', role: 'manager' },
+        'rep@ngbrooder.com': { password: 'rep123', role: 'rep' },
+        'farmer@ngbrooder.com': { password: 'farmer123', role: 'farmer' }
+      };
+
+      const loginForm = document.getElementById('loginForm');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const rememberMeCheckbox = document.getElementById('rememberMe');
+
+      const rememberedEmail = localStorage.getItem('rememberedEmail');
+      if (rememberedEmail) {
+        emailInput.value = rememberedEmail;
+        rememberMeCheckbox.checked = true;
+      }
+
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (users[email] && users[email].password === password) {
+          if (rememberMeCheckbox.checked) {
+            localStorage.setItem('rememberedEmail', email);
+          } else {
+            localStorage.removeItem('rememberedEmail');
+          }
+
+          const role = users[email].role;
+          if (role === 'manager') {
+            window.location.href = 'dashboard.html';
+          } else if (role === 'rep') {
+            window.location.href = 'rep_dashboard.html';
+          } else if (role === 'farmer') {
+            window.location.href = 'customer_portal.html';
+          } else {
+            alert('Role not recognized');
+          }
+        } else {
+          alert('Invalid email or password');
+        }
+      });
+
+      document.querySelector('.forgot-password').addEventListener('click', (e) => {
+        e.preventDefault();
+        const email = prompt('Enter your email to receive a reset link:');
+        if (email) {
+          alert(`Password reset link sent to ${email} (simulated).`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

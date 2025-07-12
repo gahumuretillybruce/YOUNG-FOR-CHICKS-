@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>landingsite</title>
+    <style>
+        /* General Body and HTML Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif; /* Or your preferred font */
+        }
+
+        body {
+            background-image: url(chicken-picture.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: #fff;
+            height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: orange;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* Header and Navbar */
+        header {
+            position: relative;
+            padding: 0 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .navbar {
+            width: 100%;
+            height: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
+
+        .action-btn {
+            background-color: orange;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background-color: darkorange;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 60px);
+            background-image: url('ai-generated-chicken-picture.jpg'); /* Using your chicken image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Overlay to make text readable */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            color: orange; /* moved inline color to CSS */
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: white; /* moved inline color to CSS */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links,
+            .action-btn {
+                display: none;
+            }
+
+            .navbar {
+                justify-content: space-between;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">YOUNG 4<span style="color: orange;">CHICKS</span></div>
+            <ul class="nav-links">
+                <li><a href="file:///C:/Users/Admin/Desktop/workspace/YOUNG%20FOR%20CHICKS/login.html">MANAGER</a></li>
+                <li><a href="file:///C:/Users/Admin/Desktop/workspace/YOUNG%20FOR%20CHICKS/login.html">SALES REP</a></li>
+                <li><a href="file:///C:/Users/Admin/Desktop/workspace/YOUNG%20FOR%20CHICKS/login.html">CUSTOMER</a></li>
+                <li><a href="file:///C:/Users/Admin/Desktop/workspace/YOUNG%20FOR%20CHICKS/signeapp%20page.html">SIGNUP</a></li>
+            </ul>
+            <a href="file:///C:/Users/Admin/Desktop/workspace/YOUNG%20FOR%20CHICKS/signeapp%20page.html" class="action-btn">Get Started</a>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome</h1>
+            <p>Kickstart Your Empire — One Chick at a Time, Backed by Purpose. Built for Profit.</p>
+        </div>
+    </main>
+</body>
+
+</html>
